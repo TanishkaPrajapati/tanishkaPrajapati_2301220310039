@@ -19,23 +19,19 @@ public:
     }
 };
 -------------------------------------------------------------------------------------------------------------------------------------
-class Solution
- {
+class Solution {
 public:
-    int climbStairs(int n)
-     {
+    int dp[46];
+
+    int climbStairs(int n) {
         if (n <= 2)
             return n;
 
-        int a = 1, b = 2, c;
+        if (dp[n] != 0)
+            return dp[n];
 
-        for (int i = 3; i <= n; i++) 
-        {
-            c = a + b;
-            a = b;
-            b = c;
-        }
-
-        return b;
+        return dp[n] = climbStairs(n - 1) + climbStairs(n - 2);
     }
 };
+-----------------------------------------------------------------------------------------------------------------------------------
+
